@@ -8,7 +8,7 @@ class NotMatch extends Component{
     render(){
         return (
             <div>
-                haahah
+               404,找不到你要的页面
             </div>
         )
 

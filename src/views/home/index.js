@@ -7,8 +7,8 @@ class Home extends Component{
     }
     render(){
         return (
-            <div>
-                wshi
+            <div className="home">
+               首页，好好学习react
             </div>
         )
 

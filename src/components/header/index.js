@@ -1,5 +1,7 @@
 import React,{Component} from 'react'
 import './index.less'
+import utils from '../../utils/index'
+import axios from 'axios'
 
 class Header extends Component{
     constructor(props){
@@ -9,6 +11,30 @@ class Header extends Component{
         weather:'',
         time:'',
     }
+    componentWillMount() {
+        this.getWeather()
+        this.getDate()
+    }
+    getWeather(){
+        axios.get(`http://t.weather.sojson.com/api/weather/city/101010100`).then(res => {
+            let weatherData = res.data.data.forecast[0]
+            let weatherStr = `${weatherData.low} ~ ${weatherData.high} ${weatherData.fx} ${weatherData.fl}`
+            this.setState({weather: weatherStr})
+    })
+    }
+    getDate(){
+        setInterval(()=>{
+            let unixDate = new Date().getTime()
+            let time = utils.formDate(unixDate)
+            this.setState({
+                time
+            })
+
+        },1000)
+    }
+
+
+
     render(){
         return (
             <div className="main">

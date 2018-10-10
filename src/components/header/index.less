@@ -13,3 +13,32 @@
 .logout {
   color: #409eff;
 }
+.header-detail{
+  padding:  0 20px;
+  line-height: 40px;
+  height: 40px;
+  .breadcrumb-title{
+    font-size: 18px;
+    width: 12.5%;
+    text-align: center;
+    position: relative;
+    &::after{
+      position: absolute;
+      bottom: -24px;
+      left: 50%;
+      display: block;
+      content: '';
+      border: 12px solid transparent;
+      border-top:12px solid #fff;
+    }
+  }
+  .date{
+    margin-right: 20px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  .weather-detail{
+    font-size: 14px;
+    font-weight: 700;
+  }
+}
