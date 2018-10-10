@@ -1,5 +1,5 @@
-import React,{Component} from 'react'
-import {HashRouter, Route, Switch} from 'react-router-dom'
+import React, {Component} from 'react'
+import {HashRouter, Route, Switch,Redirect} from 'react-router-dom'
 
 import Admin from '../views/admin'
 import Home from '../views/home'
@@ -12,21 +12,22 @@ class Router extends Component {
 
     render() {
         return (
-           <HashRouter>
-               <div>
-                   <Switch>
-                       <Route path="/" render={()=>
-                       <Admin>
-                           <Switch>
-                               <Route path='/home' component={Home}></Route>
-                               <Route component={NotMatch}></Route>
-                           </Switch>
-                       </Admin>
-                       }/>
-                       <Route component={NotMatch}></Route>
-                   </Switch>
-               </div>
-           </HashRouter>
+            <HashRouter>
+                <div>
+                    <Switch>
+                        <Route path="/" render={() =>
+                            <Admin>
+                                <Redirect  from="/" to="/admin"></Redirect>
+                                <Switch>
+                                    <Route path='/admin/home' component={Home}></Route>
+                                    <Route component={NotMatch}></Route>
+                                </Switch>
+                            </Admin>
+                        }/>
+                        <Route component={NotMatch}></Route>
+                    </Switch>
+                </div>
+            </HashRouter>
         )
 
     }

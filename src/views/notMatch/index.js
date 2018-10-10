@@ -1,5 +1,7 @@
 import React,{Component} from 'react'
 import './index.less'
+import notFoundImg from './img.gif'
+import {Link} from 'react-router-dom'
 
 class NotMatch extends Component{
     constructor(props){
@@ -7,8 +9,19 @@ class NotMatch extends Component{
     }
     render(){
         return (
-            <div>
-               404,找不到你要的页面
+            <div className="notMatch">
+                <div className="text">
+                    <div className="notFound">404,找不到页面</div>
+                    <div className="noF">确实没有</div>
+                    <ul>
+                        <li>你可以</li>
+                        <li><Link to="/admin/home">点这里</Link></li>
+                    </ul>
+                </div>
+                <div className="pic">
+                    <img src={notFoundImg} alt=""/>
+                </div>
+
             </div>
         )
 

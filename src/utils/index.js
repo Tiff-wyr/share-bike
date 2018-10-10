@@ -1,7 +1,7 @@
 export default {
     formDate(unix){
         function fixZero(data) {
-            return data>10 ? data : '0'+data
+            return data>=10 ? ''+data : '0'+data
         }
 
         let date=new Date(unix)

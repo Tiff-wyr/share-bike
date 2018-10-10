@@ -13,10 +13,10 @@ class NavLeft extends Component {
                <Menu mode="vertical" theme="dark">
 
                            <MenuItem key="/home">
-                               <Link to="/home">首页</Link>
+                               <Link to="/admin/home">首页</Link>
                            </MenuItem>
                            <MenuItem key="/order">
-                               <Link to="/order">订单管理</Link>
+                               <Link to="/admin/order">订单管理</Link>
                            </MenuItem>
 
                </Menu>
