@@ -5,6 +5,9 @@ import Admin from '../views/admin'
 import Home from '../views/home'
 import NotMatch from '../views/notMatch'
 import Order from '../views/order'
+import Bar from '../views/bar'
+import Pie from '../views/pie'
+
 
 
 class Router extends Component {
@@ -17,12 +20,13 @@ class Router extends Component {
             <HashRouter>
                 <div>
                     <Switch>
-                        <Route path="/" render={() =>
+                        <Route path="/admin" render={() =>
                             <Admin>
-                                <Redirect  from="/" to="/admin"></Redirect>
                                 <Switch>
                                     <Route path='/admin/home' component={Home}></Route>
                                     <Route path='/admin/order' component={Order}></Route>
+                                    <Route path='/admin/bar' component={Bar}></Route>
+                                    <Route path='/admin/pie' component={Pie}></Route>
                                     <Route component={NotMatch}></Route>
                                 </Switch>
                             </Admin>

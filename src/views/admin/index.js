@@ -17,7 +17,7 @@ class Admin extends Component {
                     <Col span={4}>
                        <NavLeft></NavLeft>
                     </Col>
-                    <Col span={20}>
+                    <Col style={{overflow: 'scroll',height: '100vh'}} span={20}>
                         <Header></Header>
                         <div className="content-wrap">
                             <div className="content">
