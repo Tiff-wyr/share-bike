@@ -33,7 +33,9 @@ class Router extends Component {
                                 </Switch>
                             </Admin>
                         }/>
-                        <Route component={MapDetail}></Route>
+                        {/*<Route component={MapDetail}></Route>*/}
+                        <Route component={NotMatch}></Route>
+
                     </Switch>
                 </div>
             </HashRouter>

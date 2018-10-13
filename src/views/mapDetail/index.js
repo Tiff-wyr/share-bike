@@ -25,6 +25,7 @@ class MapDetail extends Component {
     initMap(data) {
         const BMap = window.BMap
         var map = new BMap.Map("container");          // 创建地图实例
+        this.map=map;
         let startPoint = new BMap.Point(data.position_list[0].lon, data.position_list[0].lat)  // 创建开始点坐标
         let endPoint = new BMap.Point(data.position_list[data.position_list.length - 1].lon, data.position_list[data.position_list.length - 1].lat)  // 创建结束点坐标
         map.centerAndZoom(startPoint, 15);
@@ -33,19 +34,41 @@ class MapDetail extends Component {
         map.addControl(new BMap.NavigationControl());
         map.addControl(new BMap.ScaleControl());
         map.addControl(new BMap.OverviewMapControl());
+        //自定义开始标注图标
+        let startIcon=new BMap.Icon('start_point.png',new BMap.Size(38,41),{
+            imageSize:new BMap.Size(38,41)
+        })
+        //结束图标
+        let endIcon=new BMap.Icon('end_point.png',new BMap.Size(38,41),{
+            imageSize:new BMap.Size(38,41)
+        })
+        var markerStart = new BMap.Marker(startPoint, {icon: startIcon});
+        var markerEnd = new BMap.Marker(endPoint, {icon: endIcon});
+        map.addOverlay(markerStart);
+        map.addOverlay(markerEnd);
+        //起点终点折线
+        let linedata = data.position_list.map(item => {
+            return new BMap.Point(item.lon, item.lat)
+        })
+        let polyLine = new BMap.Polyline(
+            linedata,
+            {strokeColor:"#ff0605", strokeWeight:3}
+        )
+        map.addOverlay(polyLine)
 
-
-
-        // function addMarker(point, index) {  // 创建图标对象
-        //     var myIcon = new BMap.Icon("./start_point.png", new BMap.Size(23, 25), {
-        //         anchor: new BMap.Size(10, 25),
-        //         imageOffset: new BMap.Size(0, 0 - index * 25)   // 设置图片偏移
-        //     });
-        //     var marker = new BMap.Marker(point, {icon: myIcon});
-        //     map.addOverlay(marker);
-        // }
+        // /**绘制服务区*/
+        let gondata = data.area.map(item => {
+            return new BMap.Point(item.lon, item.lat)
+        })
+        let polygon = new BMap.Polygon(
+            gondata,
+            {fillColor: '#10ff13',strokeColor: '#ffff0a',fillOpacity: .5 }
+        )
+        map.addOverlay(polygon)
 
     }
+
+
     render() {
         return (
             <div>
