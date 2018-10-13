@@ -7,6 +7,7 @@ import NotMatch from '../views/notMatch'
 import Order from '../views/order'
 import Bar from '../views/bar'
 import Pie from '../views/pie'
+import MapDetail from '../views/mapDetail'
 
 
 
@@ -20,6 +21,7 @@ class Router extends Component {
             <HashRouter>
                 <div>
                     <Switch>
+                        {/*<Route path="/map" compontent={MapDetail}></Route>*/}
                         <Route path="/admin" render={() =>
                             <Admin>
                                 <Switch>
@@ -31,7 +33,7 @@ class Router extends Component {
                                 </Switch>
                             </Admin>
                         }/>
-                        <Route component={NotMatch}></Route>
+                        <Route component={MapDetail}></Route>
                     </Switch>
                 </div>
             </HashRouter>

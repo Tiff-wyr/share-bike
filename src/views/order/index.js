@@ -109,14 +109,14 @@ class Order extends Component {
         return (
             <div>
                 <Form layout="inline">
-                    <FormItem
-                      label="城市">
-                        <Select style={{width:150}}>
-                            {this.city.map((item,index)=>
-                                <Option value={item.value}>{item.value}</Option>
-                            )}
-                        </Select>
-                    </FormItem>
+                    {/*<FormItem*/}
+                      {/*label="城市">*/}
+                        {/*<Select style={{width:150}}>*/}
+                            {/*{this.city.map((item,index)=>*/}
+                                {/*<Option value={item.value}>{item.value}</Option>*/}
+                            {/*)}*/}
+                        {/*</Select>*/}
+                    {/*</FormItem>*/}
                     <FormItem
                     label="日期"
                     >

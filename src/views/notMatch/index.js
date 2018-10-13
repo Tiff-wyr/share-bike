@@ -16,6 +16,7 @@ class NotMatch extends Component{
                     <ul>
                         <li>你可以</li>
                         <li><Link to="/admin/home">点这里</Link></li>
+                        <li><Link to="/map">地图</Link></li>
                     </ul>
                 </div>
                 <div className="pic">

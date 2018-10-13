@@ -5,7 +5,7 @@ import axios from 'axios'
 
 class Axios {
     static instance = axios.create({
-        baseURL: '',
+        baseURL: 'https://www.easy-mock.com/mock/5bbb8bf854d6771eb592838d',
         timeout: 15000
     })
 
