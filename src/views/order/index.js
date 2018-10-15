@@ -15,20 +15,37 @@ class Order extends Component {
         dataSource:[],
         isLoading:false
     }
-    city=[
+    // 城市选择框数据
+     cityData = [
         {
-            value:"北京",
-            label:0
+            label: '北京',
+            id: '0'
         },
         {
-            value:"广州",
-            label:1
+            label: '上海',
+            id: '1'
         },
         {
-            value:"上海",
-            label:2
-        },
+            label: '广东',
+            id: '2'
+        }
     ]
+    // 车辆状态选择框数据
+     stateData = [
+        {
+            label: '全部',
+            id: 0
+        },
+        {
+            label: '进行中',
+            id: 1
+        },
+        {
+            label: '结束行程',
+            id: 2
+        }
+    ]
+    // 表格数据
     tableColumns = [
         {
             title:'订单编号',
@@ -89,20 +106,8 @@ class Order extends Component {
             key: 'user_pay'
         }
     ]
-    orderData = [
-        {
-            label: '全部',
-            id: 0
-        },
-        {
-            label: '进行中',
-            id: 1
-        },
-        {
-            label: '结束行程',
-            id: 2
-        }
-    ]
+
+
 
     render() {
         // const  {getFieldDecorator}= this.props.form

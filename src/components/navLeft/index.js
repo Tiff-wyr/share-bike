@@ -2,16 +2,25 @@ import React, {Component} from 'react';
 import './index.less'
 import {Menu} from 'antd';
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as actions from '../../action'
 
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 const MenuItem = Menu.Item
 
 class NavLeft extends Component {
+    menuClick = (row) => {
+        let text = row.item.props.children.props.children
+        console.log(row);
+        this.props.setTitle(text)
+    }
     render() {
         return (
             <div className="navLeft">
-                <Menu mode="vertical" theme="dark">
+                <Menu onClick={this.menuClick}
+                    mode="vertical" theme="dark">
 
                     <MenuItem key="/home">
                         <Link to="/admin/home">首页</Link>
@@ -36,4 +45,9 @@ class NavLeft extends Component {
     }
 }
 
-export default NavLeft;
+export default connect(
+    null,
+    (dispatch) => {
+        return bindActionCreators(actions,dispatch)
+    })
+(NavLeft)

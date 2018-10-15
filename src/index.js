@@ -6,7 +6,9 @@ import './style/common.less'
 import Router from './router'
 
 
-ReactDOM.render(<App>
+
+ReactDOM.render(
+    <App>
 <Router></Router>
 </App>, document.getElementById('root'));
 

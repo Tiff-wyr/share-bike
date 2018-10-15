@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import './index.less'
 import utils from '../../utils/index'
+import {connect} from 'react-redux'
 import axios from 'axios'
 
 class Header extends Component{
@@ -48,7 +49,7 @@ class Header extends Component{
                 </div>
                 <div className="header-detail clearfix">
                     <div className="breadcrumb-title fll">
-                        首页
+                        {this.props.title}
                     </div>
                     <div className="weather flr clearfix">
                         <div className="date fll">
@@ -66,4 +67,9 @@ class Header extends Component{
     }
 
 }
-export default Header
+
+export default connect(
+    (state) => ({
+        ...state
+    })
+)(Header)
